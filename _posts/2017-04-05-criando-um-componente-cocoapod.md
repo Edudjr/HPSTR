@@ -9,12 +9,31 @@ image:
 ---
 Criando um CocoaPod passo a passo.
 
+## Sumário
+1. [Criando um repositório para nosso componente](#item1)
+2. [Criando um projeto Pod](#item2)
+    1. [Configuração inicial](#item2.1)
+    2. [Adicionando codigo](#item2.2)
+    3. [Arquivo Podspec](#item2.3)
+    4. [Adendo: Versionamento Semântico](#item2.4)
+    5. [Testes](#item2.5)
+    6. [Tagging](#item2.6)
+3. [Distribuindo o componente](#item3)
+    1. [Distribuindo a partir de um repositório particular](#item3.1)
+        1. [Utilizando em outros projetos](#item3.1.1)
+    2. [Distribuindo publicamente através do CocoaPods](#item3.2)
+4. [Integração Contínua com Travis](#item4)
+    1. [Login e ativação](#item4.1)
+    2. [Adicionando o arquivo .travis.yml](#item4.2)
+    3. [Pull request das alterações](#item4.3)
+    4. [Resultados](#item4.4)
+
 
 Neste post iremos ver como criar um componente em **Swift3** e reaproveitá-lo em futuros projetos, utilizando também ferramentas de integração contínua. Vamos aprender a distribuir esse componente de modo privado, com um repositório pessoal, ou público, através do próprio CocoaPods.
 
 Utilizaremos o **Github** como repositório, já que ele nos permite usufruir de ferramentas como o **Travis** de maneira **gratuita** desde que seu repositório seja **público**.
 
-# 1. Criando um repositório para nosso componente
+# 1. Criando um repositório para nosso componente <a name="item1"></a>
 
 Vá até sua conta no Github e clique em **New repository**. Crie um projeto chamado **DMCalculadora**, ou utilize outro nome para seu projeto. Em seguida, clique em **Create repository**.
 
@@ -44,9 +63,9 @@ Tome nota da url do seu repositório, pois a utilizaremos mais para frente.
 
 Obs: não é necessário clonar o repositório nesse momento.
 
-# 2. Criando um projeto Pod
+# 2. Criando um projeto Pod <a name="item2"></a>
 
-## 2.1 Configuração inicial
+## 2.1 Configuração inicial <a name="item2.1"></a>
 
 O CocoaPods dispõe de uma ferramenta que irá nos auxiliar a configurar nosso projeto de Pod.
 
@@ -101,7 +120,7 @@ A parte que nos interessa agora é a apresentada acima, no caminho `Pods/Develop
 > …​
 > let calc = Calculator()`
 
-## 2.2 Adicionando código
+## 2.2 Adicionando código <a name="item2.2"></a>
 
 Agora é hora de inserir algum código para nosso componente. Vamos criar alguma função bem simples para este exemplo:
 
@@ -125,7 +144,7 @@ public class DMCalculadora{
 >
 > Você **DEVE** utilizar **public** antes da declaração da classe e das funções, senão o componente não será enxergado nas outras classes onde será importado posteriormente.
 
-## 2.3 Arquivo Podspec
+## 2.3 Arquivo Podspec <a name="item2.3"></a>
 
 Podemos notar em nosso projeto que um arquivo com extensão **.podspec** foi criado automaticamente para nós. Ajuste-o de forma que melhor descreva seu projeto. Caso seu componente tenha suas próprias dependências, verifique a flag `s.dependency`.
 
@@ -160,7 +179,7 @@ $ pod lib lint DMCalculadora.podspec
     </figcaption>
 </figure>
 
-## 2.4 Adendo: Versionamento Semântico
+## 2.4 Adendo: Versionamento Semântico <a name="item2.4"></a>
 
 É muito importante manter um padrão para o número de versionamento de seu componente e configurar corretamente a flag `s.version`, que será posteriormente linkada com uma flag criada no **git**. Isso irá permitir que os usuários do seu componente usem-o corretamente.
 
@@ -180,7 +199,7 @@ Começando de trás para frente, quando o **patch** é incrementado, significa q
 >
 > Geralmente queremos atualizar os patches o mais rápido possível
 
-## 2.3 Testes
+## 2.5 Testes <a name="item2.5"></a>
 
 Para que possamos aproveitar dos benefícios da integração contínua e evitar problemas como a regressão, devemos preparar casos de teste para o nosso componente.
 
@@ -270,7 +289,7 @@ Rode novamente os testes e se tudo correr bem, os testes passarão:
 
 Nosso componente está quase pronto para ser integrado com a ferramenta de integração contínua Travis no Github.
 
-## 2.4 Tagging
+## 2.6 Tagging <a name="item2.6"></a>
 
 Antes de mais nada, devemos salvar todo o trabalho feito até agora e taggear apropriadamente nosso componente no **git**, utilizando a mesma versão especificada no arquivo **.podspec**.
 
@@ -296,13 +315,13 @@ $ git tag '0.1.0'
 $ git push --tags
 ```
 
-# 3. Distribuindo o componente
+# 3. Distribuindo o componente <a name="item3"></a>
 
 > **Important**
 >
 > É extremamente importante que você tenha seguido os passos em Tagging antes de prosseguir nesta sessão
 
-## 3.1 Distribuindo a partir de um repositório particular
+## 3.1 Distribuindo a partir de um repositório particular <a name="item3.1"></a>
 
 > **Note**
 >
@@ -355,7 +374,7 @@ $ pod repo push DMPodSpecs DMCalculadora.podspec
     </figcaption>
 </figure>
 
-### 3.1.1 Utilizando em outros projetos
+### 3.1.1 Utilizando em outros projetos <a name="item3.1.1"></a>
 
 Agora que o processo de criação do Pod foi finalizado e ele foi adicionado em nosso repositório, só nos basta utilizar em outros projetos. Para tal, abra o arquivo **Podfile** do projeto em que iremos importar nosso componente e adicione o source do CocoaPods e também o source do seu repositório pessoal:
 
@@ -375,7 +394,7 @@ post_install do |installer|
 end
 ```
 
-## 3.2 Distribuindo publicamente através do CocoaPods
+## 3.2 Distribuindo publicamente através do CocoaPods <a name="item3.2"></a>
 
 > **Note**
 >
@@ -395,11 +414,11 @@ $ pod trunk push DMCalculadora.podspec
 
 Pronto! Seu componente está disponível publicamente através do repositório do CocoaPods.
 
-# 4. Integração Contínua com Travis
+# 4. Integração Contínua com Travis <a name="item4"></a>
 
 Antes de incorporar um código novo através de um Pull Request é muito importante saber se o código não irá quebrar nossa aplicação. Por isso, rodar testes automatizados a cada Pull Request é uma boa idéia.
 
-## 4.1 Login e ativação
+## 4.1 Login e ativação <a name="item4.1"></a>
 
 O primeiro passo é entrar no site <http://travis-ci.org> e logar com a conta do Github no canto superior direito. Uma tela de autorização irá surgir pedindo para que você autorize a ferramenta a utilizar alguns recursos de seus repositórios.
 
@@ -416,7 +435,7 @@ Após feito isso, você deve ver seu nome no canto superior direito, clique nele
     </figcaption>
 </figure>
 
-## 4.2 Adicionando o arquivo .travis.yml
+## 4.2 Adicionando o arquivo .travis.yml <a name="item4.2"></a>
 
 Precisamos agora adicionar um arquivo **yml** ao nosso projeto para que o Travis reconheça os comandos a serem executados. De volta ao terminal, na pasta raíz do componente, crie uma nova branch e um novo arquivo vazio:
 
@@ -439,7 +458,7 @@ script:
 >
 > Preste atenção no nome do arquivo com extensão `.xcworkspace` e no `scheme` no script acima para substituir pelos respectivos nomes de seu projeto
 
-## 4.3 Pull request das alterações
+## 4.3 Pull request das alterações <a name="item4.3"></a>
 
 Agora adicione o novo arquivo no git, faça um commit e em seguida um push.
 
@@ -475,7 +494,7 @@ A seguinte telá irá aparecer. Adicione algum comentário se necessário e cliq
     </figcaption>
 </figure>
 
-## 4.4 Resultados
+## 4.4 Resultados <a name="item4.4"></a>
 
 Uma tela será exibida com o status dos testes realizados pelo Travis. Eles devem ficar amarelos até serem executados. Se os testes não passarem eles ficarão vermelhos. Esperamos que o resultado seja verde, ou seja, todos os testes passaram:
 
