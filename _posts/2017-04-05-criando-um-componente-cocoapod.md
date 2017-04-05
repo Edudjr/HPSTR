@@ -136,7 +136,7 @@ public class DMCalculadora{
         return x-y
     }
 
-    public func init(){}
+    public init(){}
 }
 ```
 
