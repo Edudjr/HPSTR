@@ -28,6 +28,16 @@ body {
 
 .entry-content {
 	@include font-size(16);
+	ol {
+		border-left: solid 8px;
+		margin-left: -35px;
+		color: cadetblue;
+	}
+
+	ol ol{
+		border-left: none;
+		margin-left: 0px;
+	}
 
 	// Dotted line underlines for links
 	p > a,
