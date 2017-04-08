@@ -1,5 +1,5 @@
 title:            edudjr.github.io
-description:      Describe your website here.
+description:      O Blog certo para encontrar dicas de programação.
 disqus_shortname:
 reading_time:     true
 words_per_minute: 200
@@ -14,11 +14,11 @@ owner:
   bio:            "Your bio goes here. It shouldn't be super long but a good sentence or two should suffice."
   email:          eduardo.djr@hotmail.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:
+  twitter: https://twitter.com/_Edudjr_
   facebook:
-  github:
+  github: https://github.com/edudjr
   stackexchange:
-  linkedin:
+  linkedin: https://www.linkedin.com/in/edudjr/
   instagram:
   flickr:
   tumblr:
