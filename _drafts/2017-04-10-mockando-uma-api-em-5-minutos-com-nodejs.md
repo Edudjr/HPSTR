@@ -108,7 +108,7 @@ $ DEBUG=server:* npm start
 O comando `DEBUG=server:*` serve apenas para printar na tela eventuais logs
 gerados pelo módulo **debug**, automaticamente instalado nesse projeto.
 
-Se tudo correu bem, você verá uma página escrita "Express".
+Se tudo correu bem, você verá uma página escrita "Express - welcome to express".
 
 Nosso objetivo agora é _mimicar_ o serviço que desejamos utilizar.
 Supondo que o serviço retorno o mesmo json mencionado no começo do post, devemos
@@ -151,7 +151,7 @@ o número no final da URL para perceber que o retorno também é alterado, assim
 podemos _mockar_ o serviço e verificar que ele está chamando diversos usuários e
 produzindo o resultado no frontend.
 
-## Resumindo
+### Resumindo
 Por fim, só precisamos de **dois** comandos e algumas linhas de código
 para gerar uma API funcional que pode resolver aquele problema do servidor que
 **vive caindo** ou **demora séculos** para responder. Partindo desse princípio,
@@ -184,5 +184,150 @@ Connnections                  ttl     opn     rt1     rt5     p50     p90
 ```
 No caso, nosso link gerado é o `http://92832de0.ngrok.io`.
 
-### Explicando a estrutura
-Para entendermos rapidamente o que cada pasta significa, vamos analisar
+## Explicando a estrutura do programa
+Vamos analisar de forma resumida a estrutura do nosso código e focar em alguns
+pontos mais importantes.
+
+### bin/www
+Partindo pelo primeiro arquivo de nossa estrutura, o arquivo **bin/www**, podemos
+ver que, basicamente, ele importa o arquivo **app.js** localizado no root
+`var app = require('../app');`, cria um servidor a partir dele `var server = http.createServer(app);` e o coloca para escutar na porta 3000 `server.listen(port);`.
+
+> O arquivo **app.js** só pôde ser importado através do comando _require_ pois, no final do arquivo, declarou: `module.exports = app;`, o que permite que ele seja "exportado".
+
+### public/
+Todos os arquivos em public são **públicos** e podem ser acessados diretamente
+da url, seguindo o estilo **http://root/pasta/arquivo**. Por exemplo, o arquivo
+**style.css** existe dentro da pasta **stylesheets**. Para acessá-lo, podemos
+jogar no navegador: http://localhost:3000/stylesheets/style.css.
+
+### routes/
+Aqui se encontram todas as "rotas" que irão compor a url de nossa API ou website.
+As rotas definem os **endpoints** de nossa aplicação. Em outras palavras, ela
+irá definir o que vai acontecer quando um cliente tentar acessar, por exemplo,
+o caminho _root_ da API (http://localhost:3000/), ou então o endpoint _/users_ (http://localhost:3000/users).
+
+Você deve ter se perguntado durante o tutorial sobre como, ao adicionar o código
+`router.get('/:id', function(req, res) {...}`, conseguimos redirecionar a url
+**http://localhost:3000/users/47** para a função que criamos. De onde veio o **/users/**
+do caminho??
+
+Podemos ver que existem os arquivos **index.js** e **users.js** na pasta routes.
+Agora, pulando rapidamente para o arquivo **app.js** (que iremos explicar melhor
+a seguir) podemos ver o seguinte código:
+
+```javascript
+var routes = require('./routes/index'); //#1
+var users = require('./routes/users'); //#2
+.
+.
+.
+app.use('/', routes); //#3
+app.use('/users', users); //#4
+```
+
+Em **#1** e **#2**, podemos ver que ele está importando nossos dois arquivos da pasta routes.
+
+Em seguida, **#3**, ele está dizendo _"olha, para o caminho root '/', use o arquivo
+routes/index.js como rota"_. Ou seja, para todos os caminhos que partam da url
+root (http://localhost:3000/), o programa vai olhar dentro do arquivo
+index.js para buscar o caminho correspondente. Por exemplo, se quisermos que nosso
+servidor responda na url http://localhost:3000/respondeaqui, teremos que incluir
+dentro de **routes/index.js** o seguinte código:
+
+```javascript
+/* arquivo: routes/index.js
+ * url de resposta: http://localhost:3000/respondeaqui
+ */
+router.get('/respondeaqui', function(req, res, next) {
+  res.send('ok');
+});
+```
+
+No caso do **#4**, ele está dizendo _"olha, para o caminho /users/, use o arquivo
+routes/users.js como rota"_. Ou seja, para todos os caminhos que partam da url
+http://localhost:3000/users/, o programa vai olhar o arquivo users.js para buscar
+o caminho em questão. Como exemplo, se quisermos que nosso servidor agora responda
+na url http://localhost:3000/users/agoraaqui, teremos de incluir no arquivo
+**routes/users.js** o seguinte código:
+
+```javascript
+/* arquivo: routes/users.js
+ * url de resposta: http://localhost:3000/users/aquiagora
+ */
+router.get('/aquiagora', function(req, res, next) {
+  res.send('ok');
+});
+```
+
+### views/
+Talvez você tenha estranhado os arquivos com terminação **.jade** encontrados nesta pasta.
+Jade, hoje chamado Pug, é uma das diversas **template engines** disponíveis para Node.
+As template engines basicamente substituem variáveis em arquivos de template por
+valores atuais e transformam o template, junto com os valores, em arquivos HTML,
+que são então enviados para o cliente.
+
+**Mas como elas funcionam na prática, e como enviamos esses arquivos para o cliente?**
+
+Lembra quando acessamos o root da aplicação
+e recebemos de volta uma página escrita "Express - welcome to express"?
+Vamos ver como esse fluxo funciona.
+
+Primeiramente, o cliente vai acessar um recurso de nossa API. No caso, ele digita
+no navegador o caminho root da aplicação, http://localhost:3000/.
+
+Ao fazer isso, estaremos acessando o arquivo **routes/index.js** e buscando pela
+função que representa o caminho root (como discutido em **routes**):
+
+```javascript
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+```
+
+Quando o comando `res.render(...)` é chamado, ele vai tomar uma string como
+argumento e buscar na pasta **views** o arquivo correspondente à string. Nesse caso,
+ele estará buscando o arquivo **index.jade** (repare que não precisamos definir a
+terminação do arquivo no comando).
+
+Nesse caso, o comando `res.render(...)` possui dois argumentos: o primeiro é a string,
+no caso **'index'**, e o segundo argumento é um json, **{ title : 'Express' }**.
+Quando um json é passado como segundo argumento, ele será acessível dentro
+da view buscada.
+
+Vamos abrir então o arquivo **index.jade**:
+
+```html
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+```
+
+* **extends layout** está importando o arquivo layout.jade para dentro de index.jade.
+
+* **#{title}** é a variável que passamos como segundo argumento em `res.render(...)`,
+logo, **#{title}** irá ser substituido por **Express** quando o arquivo for
+renderizado para HTML:
+
+```html
+<html>
+  <head>
+    <title>Express</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <h1>Express</h1>
+      <p>Welcome to Express</p>
+  </body>
+</html>
+```
+
+Logo após ser renderizado, ele será redirecionado para o cliente, que irá ver
+em sua tela do navegador a mensagem "Express - welcome to express".
+
+obs: **res** em **res.render(...)** representa o **response**, ou a "resposta",
+da requisição. Logo, esse comando está dizendo "responda para esse cliente com
+o arquivo index.jade renderizado".
