@@ -110,8 +110,8 @@ gerados pelo módulo **debug**, automaticamente instalado nesse projeto.
 
 Se tudo correu bem, você verá uma página escrita "Express - welcome to express".
 
-Nosso objetivo agora é _mimicar_ o serviço que desejamos utilizar.
-Supondo que o serviço retorno o mesmo json mencionado no começo do post, devemos
+Nosso objetivo agora é imitar o serviço que desejamos utilizar.
+Supondo que o serviço retorne o mesmo json mencionado no começo do post, devemos
 então colocar o seguinte código dentro do arquivo **routes/users.js**, logo antes de `module.exports = router;`:
 
 ```javascript
@@ -171,7 +171,8 @@ Para usá-la, faça o download do instalador para o seu sistema, e digite no ter
 $ ngrok http 3000
 ```
 
-Um link randômico será criado na saida do programa:
+Um link aleatório será criado na saida do programa:
+
 ```bash
 Tunnel Status                 online
 Version                       2.0/2.0
@@ -226,7 +227,7 @@ app.use('/', routes); //#3
 app.use('/users', users); //#4
 ```
 
-Em **#1** e **#2**, podemos ver que ele está importando nossos dois arquivos da pasta routes.
+Em **#1** e **#2**, podemos ver que está sendo importado nossos dois arquivos da pasta routes.
 
 Em seguida, **#3**, ele está dizendo _"olha, para o caminho root '/', use o arquivo
 routes/index.js como rota"_. Ou seja, para todos os caminhos que partam da url
@@ -325,9 +326,38 @@ renderizado para HTML:
 </html>
 ```
 
-Logo após ser renderizado, ele será redirecionado para o cliente, que irá ver
+Logo após ser renderizado, o arquivo será redirecionado para o cliente, que irá ver
 em sua tela do navegador a mensagem "Express - welcome to express".
 
-obs: **res** em **res.render(...)** representa o **response**, ou a "resposta",
+> **res** em **res.render(...)** representa o **response**, ou a "resposta",
 da requisição. Logo, esse comando está dizendo "responda para esse cliente com
 o arquivo index.jade renderizado".
+
+
+### app.js
+Este um dos arquivos mais importantes de nossa estrutura. Ele irá tomar conta das configurações iniciais da nossa aplicação.
+Primeiramente, ele importa alguns módulos:
+
+```javascript
+var express = require('express');
+var path = require('path');
+...
+```
+
+Em seguida, define o caminho padrão para as views e define qual template engine que será utilizada (poderia ser utilizada a 'ejs', por exemplo).
+
+```javascript
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+```
+
+Os restantes `app.use(...)` irão definir _middlewares_, ou seja, funções intermediárias, para tratar os erros que venham a ocorrer em ambiente de desenvolvimento `if (app.get('env') === 'development') { ... }` ou de produção. Para mais informações sobre middlewares, acesse
+a [página](https://expressjs.com/en/api.html#app.use) do express.
+
+ > Os middlewares são ativados em cascata, portanto, ordem importa.
+
+### Fim!
+Ficamos por aqui! Espero que tenham entendido um pouquinho sobre o como o Node
+em combinação com o Express funcionam e consigam aproveitar desse tutorial de
+alguma maneira útil. Até breve :)
