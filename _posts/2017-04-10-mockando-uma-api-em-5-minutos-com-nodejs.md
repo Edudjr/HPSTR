@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Mockando uma API em 5 minutos com NodeJS
-description: "Mockando uma API em 5 minutos com NodeJS"
-modified: 2016-04-10T15:27:45-04:00
+title: Criando uma API em 5 minutos com NodeJS
+description: "Criando uma API em 5 minutos com NodeJS"
+modified: 2016-04-16T15:27:45-03:00
 tags: [Nodejs, API, mock, ngrok]
 image:
   url: https://s19.postimg.org/xapr6cfsj/blog-post2.jpg
@@ -11,9 +11,6 @@ image:
 # Mockando uma API em 5 minutos com NodeJS
 
 >Esse artigo pode ser um bom ponto de partida para iniciantes em NodeJS :)
-
-As vezes precisamos criar rapidamente uma API para realizar um MOCK de algum
-serviço, ou simplesmente precisamos de um _quick start_ para um novo backend.
 
 Algumas vezes me deparo com a seguinte situação: estamos trabalhando
 no desenvolvimento do frontend de algum aplicativo, mas precisamos utilizar o

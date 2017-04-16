@@ -2,7 +2,7 @@
 layout: post
 title: Criando e distribuindo um CocoaPod com Swift3 e integração contínua com Travis
 description: "Criando e distribuindo um CocoaPod com Swift3 e integração contínua com Travis"
-modified: 2016-06-01T15:27:45-04:00
+modified: 2016-06-01T15:27:45-03:00
 tags: [CocoaPods, Swift3, Travis, integração contínua]
 image:
   url: https://s19.postimg.org/drl5wzh0z/blog-post1.jpg
