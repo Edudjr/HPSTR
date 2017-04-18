@@ -19,7 +19,7 @@ Suponha que estejamos escrevendo uma aplicação que lide com dinheiro. Não que
 que os usuários do sistema percam dinheiro ao transferir ou receber valores,
 não é mesmo? Isso seria um erro grave em nosso sistema.
 
-Considere o seguinte cenário: você possui em sua carteira virtual **R$4,30**. Então, recebe **R$6,15** de seu pai e mais **R$1.85** de sua mãe. Vamos, inocentemente,
+Considere o seguinte cenário: você possui em sua carteira virtual **R$4,30**. Então, recebe **R$6,15** de seu pai e mais **R$1,85** de sua mãe. Vamos, inocentemente,
 jogar esses valores em números reais (pontos flutuantes) e ver o que acontece:
 
 _javascript:_
