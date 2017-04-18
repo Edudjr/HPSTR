@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Não confie em pontos flutuantes
-description: "Não confie em pontos flutuantes"
+title: Não confie muito em pontos flutuantes
+description: "Não confie muito em pontos flutuantes"
 modified: 2016-04-17T15:27:45-03:00
 tags: [dinheiro, pontos flutuantes, unidade monetária]
 image:
@@ -19,7 +19,7 @@ Suponha que estejamos escrevendo uma aplicação que lide com dinheiro. Não que
 que os usuários do sistema percam dinheiro ao transferir ou receber valores,
 não é mesmo? Isso seria um erro grave em nosso sistema.
 
-Considere o seguinte cenário: você possui em sua carteira virtual **R$4,30**. Então, recebe **R$6,15** reais de seu pai e mais **R$1.85** de sua mãe. Vamos, inocentemente,
+Considere o seguinte cenário: você possui em sua carteira virtual **R$4,30**. Então, recebe **R$6,15** de seu pai e mais **R$1.85** de sua mãe. Vamos, inocentemente,
 jogar esses valores em números reais (pontos flutuantes) e ver o que acontece:
 
 _javascript:_
@@ -68,3 +68,5 @@ print(soma/100)
 Não iremos nos aprofundar em como funcionam os pontos flutuantes, mas saibam que eles dependem também da arquitetura (32/64 bits) e podem as vezes se comportar de formas que não esperamos, como no caso acima.
 
 Ficamos por aqui, não deixem os pontos flutuantes roubarem seu dinheiro.
+
+_inspirado em: http://trentrichardson.com/2013/02/23/why-you-cant-trust-javascripts-addition-nodejs-included/_
