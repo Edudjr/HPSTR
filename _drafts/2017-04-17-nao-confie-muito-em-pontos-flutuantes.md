@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Não confie em pontos flutuantes
-description: "Não confie em pontos flutuantes"
+title: Não confie muito em pontos flutuantes
+description: "Não confie muito em pontos flutuantes"
 modified: 2016-04-17T15:27:45-03:00
 tags: [dinheiro, pontos flutuantes, unidade monetária]
 image:
