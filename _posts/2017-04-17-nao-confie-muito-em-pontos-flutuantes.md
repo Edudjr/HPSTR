@@ -69,4 +69,4 @@ Não iremos nos aprofundar em como funcionam os pontos flutuantes, mas saibam qu
 
 Ficamos por aqui, não deixem os pontos flutuantes roubarem seu dinheiro.
 
-_inspirado em: http://trentrichardson.com/2013/02/23/why-you-cant-trust-javascripts-addition-nodejs-included/_
+_inspirado em: [http://trentrichardson.com/2013/02/23/why-you-cant-trust-javascripts-addition-nodejs-included/](http://trentrichardson.com/2013/02/23/why-you-cant-trust-javascripts-addition-nodejs-included/)_
