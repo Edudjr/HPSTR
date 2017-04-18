@@ -2,7 +2,7 @@
 layout: post
 title: Não confie muito em pontos flutuantes
 description: "Não confie muito em pontos flutuantes"
-modified: 2016-04-17T15:27:45-03:00
+modified: 2016-04-17T15:30:45-03:00
 tags: [dinheiro, pontos flutuantes, unidade monetária]
 image:
   url: https://s19.postimg.org/udlq97v8z/blog-post3.jpg
@@ -68,3 +68,6 @@ print(soma/100)
 Não iremos nos aprofundar em como funcionam os pontos flutuantes, mas saibam que eles dependem também da arquitetura (32/64 bits) e podem as vezes se comportar de formas que não esperamos, como no caso acima.
 
 Ficamos por aqui, não deixem os pontos flutuantes roubarem seu dinheiro.
+
+
+_inspirado em: http://trentrichardson.com/2013/02/23/why-you-cant-trust-javascripts-addition-nodejs-included/_
