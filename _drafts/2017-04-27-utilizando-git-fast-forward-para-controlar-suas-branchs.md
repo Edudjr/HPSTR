@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Utilizando GIT NO FAST FORWARD para controlar suas branchs
-description: "Utilizando GIT NO FAST FORWARD para controlar suas branchs"
+title: Utilizando GIT "No Fast Forward" para controlar suas branchs
+description: "Utilizando GIT 'No Fast Forward' para controlar suas branchs"
 modified: 2016-04-17T15:27:45-03:00
 tags: [GIT, Branch, No Fast Forward]
 image:
@@ -15,9 +15,9 @@ parecida com o **Gitflow**, porém com algumas mudanças para tornar mais fácil
 o trabalho dos QAs, e também de integração contínua, em nossos projetos.
 
 A principal mudança é que a branch **release** nunca morre. Ela não começa
-a partir da **dev**(como no Gitflow), mas sim a partir do commit inicial, assim
+a partir da **dev** como no Gitflow, mas sim a partir do commit inicial, assim
 como a **master** e a própria dev. Essas três branchs possuem algumas
-características importantes: são **fixas**, nunca morrem e nunca são commitadas
+características importantes: elas nunca morrem e nunca são commitadas
 diretamente. Ou seja, possuem apenas merges.
 
 Resumidamente, neste modelo, a branch **master** irá conter **somente** merges
@@ -41,11 +41,11 @@ histórica do trabalho desenvolvido.
 
 Primeiramente, queriamos ter um maior controle das versões que já foram
 publicadas na loja. Antigamente, as branches se emaranhavam de maneira confusa
-e era difícil achar dentro tantos commits aquele que foi utilizado para gerar a
-build para a loja. Por sorte, utilizavamos na maior parte do tempo tags, mas
+e era difícil achar dentre tantos commits aquele que foi utilizado para gerar a
+build para a loja. Felizmente, utilizavamos na maior parte do tempo tags, mas
 mesmo assim as taggs se confundiam com outras versões. Em sua nova proposta, a
 **master** manteria apenas merges de versões prontas para a produção, e que
-representam versões de release testadas. É muito mais facil localizar as versões
+representam versões de releases testadas. É muito mais facil localizar as versões
 dessa maneira.
 
 Segundo, tinhamos um grande problema em mãos: os QAs tinham que testar em branches
@@ -76,16 +76,26 @@ No exemplo acima, podemos ver que features se misturam com bugs. Esse é um proj
 se os commits representam uma feature, um bug, um hotfix ou uma release, a não ser
 que eles estejam claramente especificados na descrição.
 
-Para fins de exemplo,
+Para fins de demonstração,
 vamos considerar que os commits que começam com [MOB-xxxx] são commits de
 correção de bugs, enquanto que os demais são features ou merges. Vamos traduzir
 esses commits para o nosso novo modelo:
 
-![nova versão](https://s19.postimg.org/wl5mvecxf/branches.jpg)
+![nova versão](https://s19.postimg.org/oh244efw3/branches.jpg)
+
+_obs: no repositório original não há releases públicas, porém as coloquei aqui
+apenas para demonstrar melhor o cenário._
 
 Podemos ver logo de cara que temos mais commits neste novo modelo - são 36 commits
 contra 22 do modelo anterior. Porém, conseguimos ver claramente o que são releases
 públicas, o que são releases internas (de QA), o que são bugs resolvidos e o que
-são features. Otra vantagem desse modelo é que conseguimos facilmente remover
+são features. Outra vantagem desse modelo é que conseguimos facilmente remover
 qualquer funcionalidade da dev e gerar uma nova release se for preciso, basta
-reverter o merge da funcionalidade. Por exemplo, vamos imaginar que
+reverter o merge da funcionalidade.
+
+Vamos imaginar que uma nova versão
+0.2.0.18 está para ser lançada, mas foi decidido pelo cliente que as features _feature/formas-de-pagamento_ e _feature/login_ não devem mais fazer parte
+do aplicativo. Basta reverter os commits **Merge de feature/formas-de-pagamento em dev**
+e **Merge de feature/login em dev**, e, se tudo correr bem, você irá remover duas
+funcionalidades de maneira bem mais efetiva do que ficar procurando na descrição
+dos commits em uma árvore totalmente plana, como da forma original.
