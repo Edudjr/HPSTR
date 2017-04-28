@@ -7,7 +7,7 @@ tags: [GIT, Branch, No Fast Forward]
 image:
   url: https://images.pexels.com/photos/2740/nature-animal-fur-dangerous.jpg?w=940&h=650&auto=compress&cs=tinysrgb
 ---
-Motando uma estrutura de branchs com a ajuda do No Fast Forward.
+Montando uma estrutura de controle de versionamento com a ajuda do _No Fast Forward_.
 
 Recentemente discutimos no trabalho um padrão para utilização de branchs que
 se adequasse às nossas necessidades internas. Chegamos à uma proposta
@@ -72,15 +72,20 @@ problemas de merge:
 
 ![branchs](https://s19.postimg.org/tkosev1mb/Screen_Shot_2017-04-27_at_19.04.43.png)
 
-No exemplo acima, podemos ver que features se misturam com bugs, além de tags em
-branchs diferentes. Os commits que começam com [MOB-xxxx] são commits de
-correção de bugs, enquanto que os demais são features ou merges. Através do
-commit "Merge branch 'development' into features" podemos ver que as branches
-_development_ e _features_ andaram juntas até o "Ajustes de layout de recibo",
-onde alguém em _development_ resolveu lançar uma release (Build#13). Porém, um bug
-foi encontrado e corrigido na própria feature, o que forçou que uma nova versão
-fosse lançada.
+No exemplo acima, podemos ver que features se misturam com bugs. Esse é um projeto real, e não temos nenhum meio de identificar
+se os commits representam uma feature, um bug, um hotfix ou uma release, a não ser
+que eles estejam claramente especificados na descrição.
 
+Para fins de exemplo,
+vamos considerar que os commits que começam com [MOB-xxxx] são commits de
+correção de bugs, enquanto que os demais são features ou merges. Vamos traduzir
+esses commits para o nosso novo modelo:
 
+![nova versão](https://s19.postimg.org/wl5mvecxf/branches.jpg)
 
-![nova versão](https://s19.postimg.org/5sfh3bzlf/download.jpg)
+Podemos ver logo de cara que temos mais commits neste novo modelo - são 36 commits
+contra 22 do modelo anterior. Porém, conseguimos ver claramente o que são releases
+públicas, o que são releases internas (de QA), o que são bugs resolvidos e o que
+são features. Otra vantagem desse modelo é que conseguimos facilmente remover
+qualquer funcionalidade da dev e gerar uma nova release se for preciso, basta
+reverter o merge da funcionalidade. Por exemplo, vamos imaginar que
