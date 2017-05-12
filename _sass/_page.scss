@@ -134,12 +134,16 @@ body {
 		text-align: left;
 		margin-left: -50%;
 		position: absolute;
+		color: white;
+		height: 100%;
+		a {
+			color: white;
+		}
 	}
 
 	h1 {
-		margin: 10px;
+		margin: 0px;
 		font-weight: 100;
-		margin-top: 70px;
 		color: #fff;
 		text-shadow: 1px 1px 4px rgba($base-color,0.6);
 		font-family: 'PT Mono', monospace;
@@ -163,6 +167,22 @@ body {
 
 	p {
 		color: #fff;
+	}
+}
+
+#logo{
+	height: 70%;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+#menu{
+	height: 30%;
+	display: flex;
+	section{
+		display: flex;
+		flex-direction: column-reverse;
+		margin-right: 5px;
 	}
 }
 
