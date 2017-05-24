@@ -5,7 +5,7 @@ description: "Não confie muito em pontos flutuantes"
 modified: 2016-04-17T15:27:45-03:00
 tags: [dinheiro, pontos flutuantes, unidade monetária]
 image:
-  url: https://s19.postimg.org/udlq97v8z/blog-post3.jpg
+  url: https://s19.postimg.org/ije4a6ygj/blog-post4.jpg
 ---
 # Pontos flutuantes não são sempre confiáveis.
 
