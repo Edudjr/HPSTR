@@ -10,19 +10,25 @@
 <body id="post-index" {% if page.image.feature %}class="feature"{% endif %}>
 
 {% include browser-upgrade.html %}
-{% include navigation.html %}
 
 <div class="entry-header">
-  {% if page.image.credit %}<div class="image-credit">Image source: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
   {% if page.image.feature %}
     <div class="entry-image">
-      <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }}">
+
     </div><!-- /.entry-image -->
   {% endif %}
   <div class="header-title">
-    <div class="header-title-wrap">
-      <h1>{{ site.title }}</h1>
-      <h2>{{ page.title }}</h2>
+    <div class="header-title-wrap element-animation">
+      <div id="logo">
+        <section>
+          <h1><a href="/"><span class="aqua-color">Inst</span><span class="pink-color">anciando</span></a></h1>
+        </section>
+      </div>
+      <div id="menu">
+        <section><a href="/">Home</a></section>
+        <section> :: </section>
+        <section><a href="/about">Sobre</a></section>
+      </div>
     </div><!-- /.header-title-wrap -->
   </div><!-- /.header-title -->
 </div><!-- /.entry-header -->
@@ -37,7 +43,7 @@
   </footer>
 </div><!-- /.footer-wrapper -->
 
-{% include scripts.html %}          
+{% include scripts.html %}
 
 </body>
 </html>

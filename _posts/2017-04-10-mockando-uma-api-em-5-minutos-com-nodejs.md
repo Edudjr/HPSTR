@@ -5,7 +5,7 @@ description: "Criando uma API em 5 minutos com NodeJS"
 modified: 2016-04-16T15:27:45-03:00
 tags: [Nodejs, API, mock, ngrok]
 image:
-  url: https://s19.postimg.org/xapr6cfsj/blog-post2.jpg
+  url: https://s19.postimg.org/53r3kqpyr/blog-post5.jpg
 ---
 
 # Mockando uma API em 5 minutos com NodeJS

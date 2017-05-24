@@ -1,14 +1,7 @@
 {
   "name": "hpstr-theme",
-  "author": "Michael Rose <michael@mademistakes.com>",
-  "homepage": "http://mmistakes.github.io/hpstr-jekyll-theme/",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mmistakes/hpstr-jekyll-theme.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mmistakes/hpstr-jekyll-theme/issues"
-  },
+  "author": "Eduardo Domene Junior",
+  "homepage": "http://www.instanciando.com.br",
   "engines": {
     "node": ">= 0.10.0"
   },

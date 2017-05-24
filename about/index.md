@@ -1,32 +1,31 @@
 ---
 layout: page
-title: About the Jekyll Theme
+title: Sobre
 image:
-  feature: abstract-5.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+  url: https://images.pexels.com/photos/2740/nature-animal-fur-dangerous.jpg?w=940&h=650&auto=compress&cs=tinysrgb
 comments: false
 modified: 2016-02-01
 ---
 
-They say three times the charm, so here is another free responsive Jekyll blog theme for you. I've learned a ton since open sourcing my first two themes [on Github](http://github.com/mmistakes), and wanted to try a few new things this time around. 
+## Olá!
+Meu nome é **Eduardo Domene Junior** e trabalho atualmente com **desenvolvimento mobile** e **backend**,
+utilizando, majoritariamente, Swift e Nodejs.
 
-If you've used any of [my other themes](http://mademistakes.com/work/jekyll-themes/) most of this should be familiar territory...
+Estou me formando pela **Universidade de São Paulo**, em São Carlos, no curso de **Sistemas de Informação**,
+e utilizo esse **blog** para compartilhar informações possivelmente úteis, projetos pessoais ou
+algumas situações que me deparo no trabalho.
 
-## HPSTR Features:
+Para saber um pouco mais sobre mim, acesse minhas redes sociais:
 
-* Compatible with Jekyll 3 and GitHub Pages.
-* Responsive templates for post, page, and post index `_layouts`. Looks great on mobile, tablet, and desktop devices.
-* Gracefully degrades in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.  
-* Sweet animated menu.
-* Background image support.
-* Support for large images to call out your favorite posts.
-* Optional [Disqus](http://disqus.com) comments.
-* Simple and clear permalink structure[^1].
-* [Open Graph](https://developers.facebook.com/docs/opengraph/) and [Twitter Cards](https://dev.twitter.com/docs/cards) support for a better social sharing experience.
-* [Custom 404 page]({{ site.url }}/404.html) to get you started.
-* [Syntax highlighting]({{ site.url }}/code-highlighting-post/) stylesheets to make your code examples look snazzy.
+<a href="https://www.linkedin.com/in/edudjr/" class="btn btn-block btn-social btn-linkedin">
+  <span class="fa fa-linkedin"></span> Linkedin
+</a>
+<a href="https://twitter.com/_Edudjr_" class="btn btn-block btn-social btn-twitter">
+  <span class="fa fa-twitter"></span> Twitter
+</a>
+<a href="https://github.com/edudjr" class="btn btn-block btn-social btn-github">
+  <span class="fa fa-github"></span> Github
+</a>
 
-<div markdown="0"><a href="{{ site.url }}/theme-setup/" class="btn btn-info">Theme Setup</a> <a href="https://github.com/mmistakes/hpstr-jekyll-theme" class="btn btn-success">Download HPSTR</a></div>
-
-[^1]: Example: *domain.com/category-name/post-title*
+Caso queira entrar em contato por email:
+<eduardo.djr@hotmail.com>
