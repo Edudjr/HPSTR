@@ -104,6 +104,28 @@ body {
 		color: lighten($base-color,20);
 	}
 }
+
+.post-header-title{
+	@extend .header-title;
+	margin-left: 0px!important;
+	max-width: 100%!important;
+}
+
+#post-header-container{
+	@media #{$large}{
+		width: 800px!important;
+		margin: auto!important;
+	}
+
+	#post-logo h1{
+		font-size: larger;
+		margin: 10px;
+		@media #{$large}{
+			margin-left: 0px;
+		}
+	}
+}
+
 .aqua-color{
 	color: aqua;
 }
@@ -143,25 +165,45 @@ body {
 			font-size: inherit;
 		}
 	}
+
 	.post-header-title-wrap {
 		display: table-cell;
 		vertical-align: middle;
 		text-align: left;
-		margin-left: -50%;
+		margin: 10px;
 		position: absolute;
 		color: white;
 		bottom: 0;
 		margin-bottom: 10px;
-		width: 800px;
+		//width: 800px;
 		a {
 			color: white;
 			font-weight: 400;
 		}
 		p{
 			margin:0px;
+			font-size: xx-small;
+		}
+		h1{
+			font-size: 22px;
+			margin-bottom: 5px;
 		}
 		h2{
-			font-size: inherit;
+			font-size: xx-small;
+		}
+
+		@media #{$medium}{
+			h1{
+				font-size: xx-large;
+			}
+		}
+
+		@media #{$large}{
+			margin-left: 0px;
+			h1{
+				font-size: xx-large;
+				width: 800px;
+			}
 		}
 	}
 
@@ -206,9 +248,15 @@ body {
 		margin-left: 0px;
 	}
 }
+#post-logo{
+	//margin-left: -50%;
+	h1{
+		font-family: 'PT Mono', monospace;
+	}
+}
 
 #menu{
-	height: 30%;
+	height: 20%;
 	display: flex;
 	section{
 		display: flex;
