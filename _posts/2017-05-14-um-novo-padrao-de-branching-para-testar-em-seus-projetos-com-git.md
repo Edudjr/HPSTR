@@ -9,6 +9,7 @@ image:
 ---
 Testando um novo padrão de controle de versionamento com a ajuda do _No Fast Forward_.
 
+
 Recentemente, discutimos no trabalho um padrão para utilização de branchs que
 se adequasse às nossas necessidades internas. Chegamos à uma proposta
 parecida com
