@@ -5,7 +5,7 @@ description: "Um novo padrão de branching para testar em seus projetos"
 modified: 2016-05-14T15:27:45-03:00
 tags: [GIT, Branch, padrão, versionamento, No Fast Forward]
 image:
-  url: https://s19.postimg.org/mxaae08oj/blog-post7.jpg
+  url: https://s19.postimg.cc/mxaae08oj/blog-post7.jpg
 ---
 Testando um novo padrão de controle de versionamento com a ajuda do _No Fast Forward_.
 
@@ -33,7 +33,7 @@ também são duplamente mergeados: de volta na **master** e também na **dev**.
 
 Vejamos um exemplo do padrão descrito acima:
 
-![padrão](https://s19.postimg.org/vmk7vzt9v/Token_Flow.png)
+![padrão](https://s19.postimg.cc/vmk7vzt9v/Token_Flow.png)
 
 Temos três principais motivações para a utilização desse sistema, sendo eles
 o controle das versões já publicadas, o controle de versões a serem testadas
@@ -86,14 +86,14 @@ Lembre-se que, quando utilizado o Git na linha de comando, o recurso "fast forwa
 é aplicado como padrão! Caso não saiba o que é isso, imagine o seguinte cenário:
 você está na branch Master e cria uma nova branch a partir dela, chamada **feature/login**.
 Na nova branch, você realiza um commit com algumas alterações.
-![branch1](https://s19.postimg.org/6zwt9be9f/Capture1.png)
+![branch1](https://s19.postimg.cc/6zwt9be9f/Capture1.png)
 
 Agora, de volta na
 Master, você pretende mergear as alterações da nova branch. Se você apenas
 digitar `git pull . feature/login` ou `git merge feature/login`, por não haver
 nenhum outro commit na Master, o git irá simplesmente igualar a Master com a
 feature/login, sem criar um novo commit para o merge.
-![branch2](https://s19.postimg.org/6ofcwjxtf/Capture2.png)
+![branch2](https://s19.postimg.cc/6ofcwjxtf/Capture2.png)
 
 Para que você aplique o modelo discutido acima, é necessário que os commits das 3 branches
 principais (master, release e dev) sejam feitos por Pull Requests (que não utiliza Fast Forward) ou então através da
@@ -101,7 +101,7 @@ flag "--no-ff", assim:
 `git pull . feature/login --no-ff` ou `git merge feature/login --no-ff`  
 Deste modo, um novo commit será criado simbolizando o merge das duas branches.
 
-![branch3](https://s19.postimg.org/gn0bj178z/Capture3.png)
+![branch3](https://s19.postimg.cc/gn0bj178z/Capture3.png)
 
 
 Espero que este modelo também seja útil para você ou que te inspire a melhorar a

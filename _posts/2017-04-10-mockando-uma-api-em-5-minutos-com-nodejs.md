@@ -5,7 +5,7 @@ description: "Criando uma API em 5 minutos com NodeJS"
 modified: 2016-04-16T15:27:45-03:00
 tags: [Nodejs, API, mock, ngrok]
 image:
-  url: https://s19.postimg.org/53r3kqpyr/blog-post5.jpg
+  url: https://s19.postimg.cc/53r3kqpyr/blog-post5.jpg
 ---
 
 # Mockando uma API em 5 minutos com NodeJS
@@ -77,8 +77,8 @@ $ cd myapp
 Rapidamente, iremos olhar a estrutura que nos foi criada para o projeto:
 
 <figure>
-	<a href="https://s19.postimg.org/5c4s6ysxf/Screen_Shot_2017-04-10_at_10.00.04.png">
-    <img src="https://s19.postimg.org/5c4s6ysxf/Screen_Shot_2017-04-10_at_10.00.04.png" alt="">
+	<a href="https://s19.postimg.cc/5c4s6ysxf/Screen_Shot_2017-04-10_at_10.00.04.png">
+    <img src="https://s19.postimg.cc/5c4s6ysxf/Screen_Shot_2017-04-10_at_10.00.04.png" alt="">
   </a>
 </figure>
 
